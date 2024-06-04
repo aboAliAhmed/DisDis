@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as Z from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod'; 
 import { useForm } from "react-hook-form";
-import { channelType } from '@prisma/client';
+import { ChannelType } from '@prisma/client';
 
 import { 
     Form, 
@@ -35,6 +35,7 @@ import {
     SelectTrigger,
     SelectValue
 } from '@/components/ui/select';
+import { useEffect } from "react";
 
 const fromSchema = Z.object({
     name: Z.string().min(1, {
@@ -45,23 +46,33 @@ const fromSchema = Z.object({
             message: "Channel name cannot be 'general'"
         }
     ),
-    type: Z.nativeEnum(channelType)
+    type: Z.nativeEnum(ChannelType)
 });
 
 export const CreateChannelModal = () => {
-    const { isOpen, onClose, type } = useModal();
+    const { isOpen, onClose, type, data } = useModal();
     const router = useRouter();
     const params = useParams();
 
     const isModalOpen = isOpen && type === "createChannel"; 
+    const { channelType } = data;
 
     const form = useForm({
         resolver: zodResolver(fromSchema),
         defaultValues: {
             name: "",
-            type: channelType.TEXT
+            type: channelType || ChannelType.TEXT
         }
     })
+
+    useEffect(() => {
+        if(channelType) {
+            form.setValue("type", channelType);
+        } 
+        else {
+            form.setValue("type", ChannelType.TEXT);
+        }
+    }, [channelType, form]);
 
     const isLoading = form.formState.isSubmitting;
 
@@ -111,10 +122,12 @@ export const CreateChannelModal = () => {
                                         Channel Name
                                     </FormLabel>
                                     <FormControl>
-                                        <input disabled={isLoading} className='bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0'
-                                        placeholder='Enter Channel Name' 
-                                        {...field}
-                                    />
+                                        <Input 
+                                          disabled={isLoading} 
+                                          className='bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0'
+                                          placeholder='Enter Channel Name' 
+                                          {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -129,6 +142,7 @@ export const CreateChannelModal = () => {
                                     <Select
                                       disabled={isLoading}
                                       onValueChange={field.onChange}
+                                      value={form.watch("type")}
                                     >
                                         <FormControl>
                                             <SelectTrigger 
@@ -138,7 +152,7 @@ export const CreateChannelModal = () => {
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            {Object.values(channelType).map((type) => (
+                                            {Object.values(ChannelType).map((type) => (
                                                 <SelectItem 
                                                   key={type}
                                                   value={type}
