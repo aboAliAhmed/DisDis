@@ -1,6 +1,6 @@
 "use client"
 
-import { MemberRole, Server, channel, ChannelType } from "@prisma/client";
+import { MemberRole, Server, Channel, ChannelType } from "@prisma/client";
 import { Edit, Hash, Lock, Mic, Trash, Video } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 
@@ -9,7 +9,7 @@ import { ActionTooltip } from "../action-tooltip";
 import { ModalType, useModal } from "@/hooks/use-modal-store";
 
 interface ServerSectionProps {
-    channel: channel;
+    channel: Channel;
     server: Server;
     role?: MemberRole;
 }
@@ -32,7 +32,7 @@ export const ServerChannel = ({
     const Icon = iconMap[channel.type];
 
     const onClick = () => {
-        router.push(`/servers/${params.serverId}/channels/${channel.id}`)
+        router.push(`/servers/${params?.serverId}/channels/${channel.id}`)
     }
 
     const onAction = (e: React.MouseEvent, action:ModalType) => {

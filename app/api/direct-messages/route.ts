@@ -1,4 +1,4 @@
-import { DirectMessage } from "@prisma/client";
+import { DirectMessage } from ;
 import { NextResponse } from "next/server";
 
 import { currentProfile } from "@/lib/current-profile";
