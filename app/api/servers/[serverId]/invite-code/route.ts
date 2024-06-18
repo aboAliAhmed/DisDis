@@ -26,7 +26,7 @@ export async function PATCH(
                 ProfileId: profile.id
             },
             data: {
-                iniviteCode: uuidv4()
+                inviteCode: uuidv4()
             }
         })
         
