@@ -1,4 +1,4 @@
-# Training on Next.js App
+# DisDis (Discord-clone)
 
 Welcome to the **DisDis** chat app repository! This project is a training application built using Next.js, designed to help people comuncate with each other.
 
