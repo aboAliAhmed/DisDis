@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Training on Next.js App
+
+Welcome to the **DisDis** chat app repository! This project is a training application built using Next.js, designed to help people comuncate with each other.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Getting Started
 
-First, run the development server:
+### Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Check out the live version of the app [here](https://dis21.up.railway.app/servers/185ec944-c8f8-4a84-a690-5fa629581376/channels/75f67997-6070-432c-b456-17db3a524d91).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To get a local copy of this project up and running for development or testing purposes, follow these simple steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   ```
+   git clone https://github.com/aboAliAhmed/DisDis.git
+   ```
+2. Install the dependencies:
+   ```
+   cd DisDis
+   ```
+3. Clone the repository:
+   ```
+   npm install
+   ```
+   or if you use yarn:
+   ```
+   yarn install
+   ```
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+   or if you use yarn:
+   ```
+   yarn dev
+   ```
+   Open http://localhost:3000 with your browser to see the result.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **User Authentication**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - Sign up, login, and logout functionality.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **User Profiles**
 
-## Deploy on Vercel
+  - Create and edit user profiles.
+  - View other users' profiles.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Server Creatation**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - Create, edit and delete server
+  - Invite people to the server
+  - Invite and kick member
+  - Change the role of the member [Guest, Moderator, Admin]
+
+- **Channel creataion**
+  - Create channel for text, audio or vedio messages
+  - Update and delete channel
+  - Send, edit or delete messages
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
