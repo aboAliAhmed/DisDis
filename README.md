@@ -8,7 +8,6 @@ Welcome to the **DisDis** chat app repository! This project is a training applic
 - [Usage](#usage)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 
 ## Getting Started
@@ -111,30 +110,6 @@ To get a local copy of this project up and running for development or testing pu
 - Shadcn-UI
 - Socket.io
 
-## Project Structure
-
-DisDis/
-├── app/
-│ ├── (auth)/
-│ │ └── (routes)/
-│ │ ├── sign-in/
-│ │ │ └── [...sign-in]/
-│ │ │ └── page.tsx
-│ │ ├── sign-up/
-│ │ │ └── [...sign-up]/
-│ │ │ └── page.tsx
-│ │ └── layout.tsx
-│ ├── (invite)/
-│ ├── (main)/
-│ ├── (setup)/
-│ └── api/
-├── components/
-├── hooks/
-├── lib/
-├── pages/
-├── prisma/
-└── public/
- 
 ## Contributing
 
 1. Fork the repository
