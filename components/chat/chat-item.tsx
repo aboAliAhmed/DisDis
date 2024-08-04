@@ -128,12 +128,12 @@ export const ChatItem = ({
     const isImage = !isPDF && fileUrl;
 
     return (
-        <div className="relative group flex items-center hover:bg-black/5 p-4 transition w-full">
+        <div className={`relative group flex items-center bg-zinc-200 dark:bg-zinc-700 hover:bg-black/5 rounded w-fit  mx-2 p-4 transition ${isOwner ? 'right-side mr-0 self-end' : ''}`}>
             <div className="group flex gap-x-2 items-start w-full">
-                <div onClick={onMemberClick} className="cursor-pointer hover:drop-shadow-md transition">
+                <div onClick={onMemberClick} className='cursor-pointer hover:drop-shadow-md transition'>
                     <UserAvatar src={member.profile.imageUrl} />
                 </div>
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full px-2">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center">
                             <p onClick={onMemberClick} className="font-semibold text-sm hover:underline cursor-pointer">
@@ -163,7 +163,7 @@ export const ChatItem = ({
                         </a>
                     )}
                     {isPDF && (
-                        <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
+                        <div className="relative flex items-center gap-2 p-2 mt-2 rounded-md bg-background/10">
                             <FileIcon 
                             className="fill-indigo-200 stroke-indigo-400 h-10 w-10 "
                             />
@@ -179,7 +179,9 @@ export const ChatItem = ({
                     )}
                     {!fileUrl && !isEditing && (
                         <p className={cn(
-                            "text-sm text-zinc-600 dark:text-zinc-300", deleted && "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1"
+                            "text-sm text-zinc-600 dark:text-zinc-300 w-fit md:w-[500px] text-left px-3",
+                            {"italic text-zinc-500 dark:text-zinc-400 text-xs mt-1": deleted},
+                            {'text-right': isOwner && deleted }
                         )}>
                             {content}
                             {isUpdated && !deleted && (
