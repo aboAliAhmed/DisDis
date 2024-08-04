@@ -128,7 +128,7 @@ export const ChatItem = ({
     const isImage = !isPDF && fileUrl;
 
     return (
-        <div className={`relative group flex items-center bg-zinc-200 dark:bg-zinc-700 hover:bg-black/5 rounded w-fit  mx-2 p-4 transition ${isOwner ? 'right-side mr-0 self-end' : ''}`}>
+        <div className={`relative group flex items-center bg-zinc-200 dark:bg-zinc-800/80 hover:bg-black/5 w-fit max-w-[450px] lg:max-w-[600px] mx-2 p-4 pr-0 rounded-e-[30px] transition ${isOwner ? 'right-side mr-0 pl-0 pr-4 self-end' : ''}`}>
             <div className="group flex gap-x-2 items-start w-full">
                 <div onClick={onMemberClick} className='cursor-pointer hover:drop-shadow-md transition'>
                     <UserAvatar src={member.profile.imageUrl} />
@@ -179,8 +179,8 @@ export const ChatItem = ({
                     )}
                     {!fileUrl && !isEditing && (
                         <p className={cn(
-                            "text-sm text-zinc-600 dark:text-zinc-300 w-fit md:w-[500px] text-left px-3",
-                            {"italic text-zinc-500 dark:text-zinc-400 text-xs mt-1": deleted},
+                            "text-sm text-zinc-600 dark:text-zinc-300 w-fit lg:w-[500px] text-left px-3",
+                            {"italic text-orse-500 dark:text-rose-300 text-xs mt-1": deleted},
                             {'text-right': isOwner && deleted }
                         )}>
                             {content}
