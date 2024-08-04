@@ -119,7 +119,7 @@ export const ChatMessages = ({
                     )}
                 </div>
             )}
-            <div className="flex flex-col-reverse">
+            <div className="flex flex-col-reverse gap-3 ">
                 {data?.pages?.map((group, i) => (
                     <Fragment key={i}>
                         {group.items.map((message: MessageWithMemberWithProfile) => (
