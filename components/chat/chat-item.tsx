@@ -128,7 +128,7 @@ export const ChatItem = ({
     const isImage = !isPDF && fileUrl;
 
     return (
-        <div className={`relative group flex items-center bg-zinc-200 dark:bg-zinc-800/80 hover:bg-black/5 w-fit max-w-[450px] lg:max-w-[600px] mx-2 p-4 pr-0 rounded-e-[30px] transition ${isOwner ? 'right-side mr-0 pl-0 pr-4 self-end' : ''}`}>
+        <div className={`relative group flex items-center bg-zinc-200 dark:bg-gray-800/50 hover:bg-black/5 w-fit max-w-[450px] lg:max-w-[600px] mx-2 p-4 pr-0 rounded-e-[30px] transition ${isOwner ? 'right-side mr-0 pl-0 pr-4 self-end' : ''}`}>
             <div className="group flex gap-x-2 items-start w-full">
                 <div onClick={onMemberClick} className='cursor-pointer hover:drop-shadow-md transition'>
                     <UserAvatar src={member.profile.imageUrl} />
@@ -168,10 +168,10 @@ export const ChatItem = ({
                             className="fill-indigo-200 stroke-indigo-400 h-10 w-10 "
                             />
                             <a 
-                            href={fileUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
+                              href={fileUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="ml-2 text-sm text-indigo-500 dark:text-indigo-400 hover:underline"
                             >
                               PDF File
                             </a>
@@ -180,12 +180,12 @@ export const ChatItem = ({
                     {!fileUrl && !isEditing && (
                         <p className={cn(
                             "text-sm text-zinc-600 dark:text-zinc-300 w-fit lg:w-[500px] text-left px-3",
-                            {"italic text-orse-500 dark:text-rose-300 text-xs mt-1": deleted},
+                            {"italic text-red-600 dark:text-red-400 text-xs mt-1": deleted},
                             {'text-right': isOwner && deleted }
                         )}>
                             {content}
                             {isUpdated && !deleted && (
-                                <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">
+                                <span className="text-[10px] mx-2 text-red-500">
                                     Editted
                                 </span>
                             )}
